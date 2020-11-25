@@ -26,4 +26,7 @@ RUN dotnet publish Service.csproj -c Release -o /app
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
+
+USER 1001:1001
+
 ENTRYPOINT ["dotnet", "Service.dll"]
